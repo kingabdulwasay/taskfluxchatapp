@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App - Sign Up</title>
+    <link rel="shortcut icon" href="../images/White_and__Blue_Modern_Digital_Marketing_Logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-database-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="logo">
+                <!-- <i class="fas fa-comments"></i> -->
+                 <img src="../images/White_and__Blue_Modern_Digital_Marketing_Logo-removebg-preview.png" alt="">
+                <h1>Task Flux</h1>
+            </div>
+   
+            
+            <div class="signup-form">
+                <div class="input-group">
+       
+                    
+                  
+                    <div class="input-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                   
+
+                   
+
+                  
+                </div>
+
+                <button  id="signup" class="signup-btn" onclick="emailAuth()">Sign in</button>
+                
+                <div class="divider">
+                    <span>or sign in with</span>
+                </div>
+
+                <div class="social-signup">
+                    <button type="button" id= "google-auth"class="social-btn google" >
+                       <img src="https://cdn-icons-png.flaticon.com/128/2702/2702602.png" alt="">
+                        Google
+                    </button>
+                  
+                </div>
+
+               
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="../images/register.svg" alt="">
+        </div>
+    </div>
+    <script src="./signup.js"></script>
+</body>
+</html>

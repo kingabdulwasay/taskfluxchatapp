@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="shortcut icon" href="./White_and__Blue_Modern_Digital_Marketing_Logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-database-compat.js"></script>
+
+
+</head>
+<body>
+    <div class="chat-container">
+
+        <div class="sidebar">
+            <div class="header">               
+                 <div class="user-profile">
+                <img src="images/White_and__Blue_Modern_Digital_Marketing_Logo-removebg-preview.png" alt="" class="profile-img">
+                    <h3>Task Flux</h3>
+                </div>
+                <div class="actions">
+                    <button id="toggle-seachmessagebox" onclick="openCreateGroup()">
+                    <i class="fas fa-plus"></i>
+
+                    </button>
+                    <button onclick="openSettings()" > 
+
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>    
+                <div id="create-group-box" class="create-group-box">
+                <input id="groupinput" type="text" placeholder="Enter group name...">
+                  <div class="create-group-container">
+                <button id="create-group" onclick="createGroup()"> Create group </button>
+            </div>
+            </div> 
+          
+
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search messages...">
+            </div>         
+               <div class="navigation-buttons">
+                <button id="load-chat" class="nav-btn" onclick="loadContacts()">
+                    <i class="fas fa-comments"></i>
+                    <span>Chats</span>
+                </button>
+                <button class="nav-btn">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks</span>
+                </button>
+                <!-- <button class="nav-btn">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Todo</span>
+                </button> -->
+                 <button class="nav-btn">
+                    <i class="fas fa-star"></i>
+                    <span>Saved</span>
+                </button>
+                <button id="load-group" class="nav-btn" onclick="loadGroups()">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Groups</span>
+                </button>
+            </div>
+            <div id="contact-list" class="section-content">
+              
+                <!-- <div class="chat-item">
+                    <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Jane" alt="Contact">
+                    <div class="chat-info">
+                        <h4>Jane Smith</h4>
+                        <p>See you tomorrow!</p>
+                    </div>
+                    <span class="time">11:50</span>
+                </div> -->
+          
+            </div>
+            <div id="profile" class="profile-section">
+              
+            </div>
+        </div>
+        <div id="chat-main" class="chat-main">   
+            <i class="fa cancel"></i>
+           
+               <div id="starter" class="starter">
+
+
+                <img id="starter-img" src="images/White_and__Blue_Modern_Digital_Marketing_Logo-removebg-preview.png" alt="">
+             <h2 id="starter-text">Start Chat</h2>   
+            </div>  
+              <div id="chat-header" class="chat-header">
+                <div id="current-chat" class="contact-info">
+                    <img  src="https://api.dicebear.com/6.x/adventurer/svg?seed=John" alt="Contact">
+                    <div  class="contact-details">
+                        <h4>John Doe</h4>
+                        <p>Active now</p>
+                    </div>
+                </div>          
+                  <div class="chat-actions">
+                    <button id="callbtn">
+                        <i class="fas fa-phone"></i>
+                    </button>
+                    <i class="fas fa-video"></i>
+                    <i class="fas fa-info-circle"></i>
+                    <button id="group-settings">
+
+                        <i class="fa-solid fa-user-plus"></i>
+                    </button>
+                </div>
+        
+          
+            </div>
+         
+            <div class="conversation-container">
+                <div id="thread" class="thread-list">
+                    <!-- Sender's Message
+                    <div class="thread">
+                        <div class="thread-replies">
+                            <div class="reply">
+                                <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Felix" alt="You">
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="sender">You</span>
+                                        <span class="time">12:25</span>
+                                    </div>
+                                    <p>Hey John! How's your day going?</p>
+                                    <div class="message-actions">
+                                        <button class="action-btn"><i class="far fa-comment"></i> Reply</button>
+                                        <button class="action-btn"><i class="far fa-star"></i> Save</button>
+                                        <button class="action-btn"><i class="fas fa-tasks"></i> Convert </button>
+                                        <button class="action-btn"><i class="fas fa-link"></i>Attachment </button>
+                                        <button class="action-btn"><i class="fas fa-edit"></i> Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    Receiver's Message
+                    <div class="thread">
+                        <div class="thread-replies">
+                            <div class="reply">
+                                <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=John" alt="John">
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="sender">John Doe</span>
+                                        <span class="time">12:27</span>
+                                    </div>
+                                    <p>I'm doing great! Just finished the project presentation. How about you?</p>
+                                    <div class="message-actions">
+                                        <button class="action-btn"><i class="far fa-comment"></i> Reply</button>
+                                        <button class="action-btn"><i class="far fa-star"></i> Save</button>
+                                        <button class="action-btn"><i class="fas fa-tasks"></i> Convert </button>
+                                        <button class="action-btn"><i class="fas fa-link"></i>Attachment </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+            <div id="chat-input" class="chat-input">
+                <div class="input-actions">
+                    <button onclick="openTaskModal()">
+
+                        <i class="fas fa-tasks"></i>
+                    </button>
+                    <i class="far fa-file"></i>
+                    <i class="far fa-smile"></i>
+                </div>
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button id="messageBtn" class="send-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div class="modal" id="taskModal" style="display: none;">
+        <div class="modal-content">
+            <h3>Create Task</h3>
+            <form id="task-form">
+                <input type="text" id="taskTitle" placeholder="Task title" required>
+                <textarea id="taskDescription" placeholder="Task description" required></textarea>
+                <div class="form-row">
+                    <select class="priority-select" id="taskPriority" required>
+                        <option value="">Select Priority</option>
+                        <option value="high">High Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="low">Low Priority</option>
+                    </select>
+                    <input type="datetime-local" id="taskDeadline" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeTaskModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Create Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+      <div class="modal" id="groupModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h3>Group Settings</h3>
+                <button id="closeGroupModal">
+                    <i class="fas fa-close"></i>
+                </button>
+
+            </div>
+            <div class="settings-container">
+                <div class="option">
+                    <img src="https://cdn-icons-png.flaticon.com/128/6135/6135324.png" alt="">
+                    <span>Edit Name</span>
+                </div>
+                    <div class="option">
+                    <img src="https://cdn-icons-png.flaticon.com/128/762/762686.png" alt="">
+                    <span>View Tasks</span>
+                </div>
+                    <div class="option" id="optionMEM">
+                    <img src="https://cdn-icons-png.flaticon.com/128/6543/6543820.png" alt="">
+                    <span>Add Members</span>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+     <div class="modal" id="memberModal" style="display: none;">
+        <div class="modal-content">
+                        <div class="modal-head">
+                <h3>Add Members</h3>
+                <button id="closeMemberModal">
+                    <i class="fas fa-close"></i>
+                </button>
+
+            </div>
+            <div id="task-form">
+                <textarea id="addMembersInput" placeholder="John Doe, Elon Musk" required></textarea>
+             
+                <div class="form-actions">
+                    <button id="addMembersBtn"  class="submit-btn" onclick="addMembers()">Add Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- <script type="module" src="./zoom-clone/js/app.js"></script> -->
+<script src="firebase.js"></script>
+
+</body>
+</html>
