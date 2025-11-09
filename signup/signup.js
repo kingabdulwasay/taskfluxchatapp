@@ -39,7 +39,7 @@ function googleAuth() {
                     email: user.email,
                     img: user.photoURL
                 });
-        window.location.replace('https://taskfluxchat.netlify.app')
+        window.location.replace('https://taskfluxchat.netlify.app/')
             }).catch((error) => {
 
                 var errorMessage = error.message;
@@ -105,7 +105,7 @@ if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
                     email: user.email,
                     img: user.photoURL
                 });
-          window.location.replace('https://taskfluxchat.netlify.app')
+          window.location.replace('http://taskfluxchat.netlify.app/')
     })
     .catch((error) => {
         var errorCode = error.code;

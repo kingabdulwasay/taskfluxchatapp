@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlux AI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="ai.css">
+  <link rel="shortcut icon" href="../images/taskflux logo.png" type="image/x-icon">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">TaskFlux AI</h2>
+      <ul class="menu">
+        <li><i class="fa-solid fa-gauge"></i><span>Dashboard</span></li>
+        <li><i class="fa-solid fa-robot"></i><span>AI Bot</span></li>
+        <li><i class="fa-solid fa-folder"></i><span>Projects</span></li>
+        <li><i class="fa-solid fa-comments"></i><span>Messages</span></li>
+        <li><i class="fa-solid fa-star"></i><span>Feedback</span></li>
+      </ul>
+      <div class="profile-btn">
+        <img
+  src="https://api.dicebear.com/9.x/avataaars/svg?seed=Vivian"
+  alt="avatar" />
+        <span>Abdul Wasay Rais</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="top-bar">
+        <button class="new-chat" onclick="window.location.replace('https://taskfluxchat.netlify.app/')"><i class="fa-solid fa-message"></i>  Go to Chats</button>
+      </div>
+
+      <div class="welcome-section">
+        <h4>Welcome to TaskFlux AI</h4>
+        <h2>Ask me anything - I’m here to help</h2>
+
+        <div class="chat-box">
+          <textarea id="prompt-box" placeholder="Whatever you need, just type here"></textarea>
+          <div class="btn-grps">
+              <div class="tags">
+                <span><i class="fa-solid fa-question"></i> Ask Q/A</span>
+                <span><i class="fa-solid fa-list-check"></i> Decomposition</span>
+                <span><i class="fa-solid fa-user-group"></i> Members</span>
+                <span><i class="fa-solid fa-user-group"></i> Documentation</span>
+                <span><i class="fa-solid fa-bell"></i> Notifications</span>
+              </div>
+              <button id="sendBtn">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+          </div>
+          <!-- Loading overlay (spinner) -->
+          <div id="loadingOverlay" class="loading-overlay hidden" aria-hidden="true">
+            <div class="spinner" role="status" aria-label="Loading"></div>
+            <div class="loading-text">Thinking...</div>
+          </div>
+
+          <!-- JSON response box (subtle, non-distracting) -->
+          <div id="jsonResponse" class="json-response hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="jsonTitle">
+            <div class="json-dialog" role="document">
+              <button class="json-close" aria-label="Close JSON response" title="Close">&times;</button>
+              <div class="json-header" id="jsonTitle">Response</div>
+              <pre class="json-content" id="jsonContent">
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="explore-section">
+        <h3>Explore by ready prompts</h3>
+        <div class="cards">
+          <div class="card">
+            <h4><i class="fa-solid fa-question"></i> Projects Information</h4>
+            <p>Give data details on how many projects are starting & in progress</p>
+          </div>
+          <div class="card">
+            <h4><i class="fa-solid fa-list-check"></i> Decomposition</h4>
+            <p>Break project requirement into smaller pieces aligned to goals</p>
+          </div>
+          <div class="card">
+            <h4><i class="fa-solid fa-user-group"></i> Get workers details</h4>
+            <p>Fetch team project information with timelines and client budget</p>
+          </div>
+          <div class="card">
+            <h4><i class="fa-solid fa-bell"></i> Circulate Notification</h4>
+            <p>Notify all team leads about meeting reschedule from 10:30am to 10:32am</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="ai.js"></script>
+</body>
+</html>

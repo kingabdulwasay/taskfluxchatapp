@@ -31,7 +31,7 @@ body {
 }
 
 .form-container {
-    width: 50%;
+    width: 100%;
     padding: 40px;
     overflow-y: auto;
       display: flex;
@@ -42,7 +42,7 @@ body {
 }
 
 .signup-form{
-    width: 100% ;
+    width: 50% ;
      display: flex;
      align-items: center;
     flex-direction: column;
@@ -51,22 +51,19 @@ body {
 
 .logo {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     gap: 5px;
     margin-bottom: 30px;
+    
 }
 
 .logo img{
-    width: 60px;
+    width: 200px;
     /* color: #0084ff; */
     color: var(--bg-color);
 }
 
-.logo h1 {
-    font-size: 30px;
-    /* color: #0084ff; */
-    color: var(--bg-color);
-}
+
 
 h2 {
     font-size: 24px;
@@ -121,8 +118,8 @@ h2 {
 .signup-btn {
     width: 70%;
     padding: 14px;
-    /* background: #0084ff; */
-    background-color: var(--bg-color);
+    background: #4b4efc;
+    /* background-color: var(--bg-color); */
     color: white;
     border: none;
     border-radius: 12px;
@@ -133,7 +130,7 @@ h2 {
 }
 
 .signup-btn:hover {
-    background: #0063cc;
+    background: #5f61fa;
 }
 
 .divider {
@@ -176,8 +173,7 @@ h2 {
 }
 
 .social-btn:hover {
-    background: #f8f9fa;
-    border-color: #d1d5db;
+    background-color:#f7f7f7;
 }
 
 .social-btn img {
@@ -211,15 +207,15 @@ h2 {
 
 .image-container {
    width: 50%;
-
-    display: flex;
+   display: none;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
 }
 
 .image-container img {
-   width: 500px;
-   height: 500px;
+   width: 400px;
+   height: 300px;
 }
 
 

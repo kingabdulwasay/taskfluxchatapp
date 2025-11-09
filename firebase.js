@@ -22,6 +22,8 @@ if (!userCredentials) {
 }
 document.addEventListener('DOMContentLoaded',()=>{
     toggleStarter(false)
+    document.getElementById('user-photo').src = `https://api.dicebear.com/6.x/adventurer/svg?seed=${userCredentials.img}`
+       document.getElementById('username').innerText = userCredentials.username
 })
 
 function toggleStarter(isChatStarted){
@@ -115,9 +117,9 @@ function loadContacts() {
                     email: value.email,
                     img: value.photoURL
                 }
-                document.getElementById('current-chat').innerHTML = `  <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=${receiverCredentials.username?receiverCredential.username:'Unknown User'}" alt="Contact">
+                document.getElementById('current-chat').innerHTML = `  <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=${receiverCredentials.username? receiverCredentials.username:'Unknown User'}" alt="Contact">
                     <div  class="contact-details">
-                        <h4>${receiverCredentials.username?receiverCredential.username:'Unknown User'}</h4>
+                        <h4>${receiverCredentials.username?receiverCredentials.username:'Unknown User'}</h4>
                         <p>Active now</p>
                     </div>`
                 loadChats('chats/'+ chatID)

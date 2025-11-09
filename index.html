@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
-    <link rel="shortcut icon" href="./White_and__Blue_Modern_Digital_Marketing_Logo-removebg-preview.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/taskflux logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,13 +20,16 @@
         <div class="sidebar">
             <div class="header">               
                  <div class="user-profile">
-                <img src="images/White_and__Blue_Modern_Digital_Marketing_Logo-removebg-preview.png" alt="" class="profile-img">
-                    <h3>Task Flux</h3>
+                <img src="images/taskflux logo.png" alt="" class="profile-img">
                 </div>
                 <div class="actions">
                     <button id="toggle-seachmessagebox" onclick="openCreateGroup()">
                     <i class="fas fa-plus"></i>
 
+                    </button>
+                    <button onclick="window.location.replace('https://taskfluxchat.netlify.app/ai/ai.html')" > 
+
+                        <i class="fas fa-robot"></i>
                     </button>
                     <button onclick="openSettings()" > 
 
@@ -81,7 +84,13 @@
           
             </div>
             <div id="profile" class="profile-section">
-              
+   
+                    <img id="user-photo" src="https://api.dicebear.com/6.x/adventurer/svg?seed=Jane" alt="Contact">
+                    <div class="user-info">
+                        <h4 id="username">Jane Smith</h4>
+                     
+                    </div>
+                 
             </div>
         </div>
         <div id="chat-main" class="chat-main">   
@@ -90,7 +99,7 @@
                <div id="starter" class="starter">
 
 
-                <img id="starter-img" src="images/White_and__Blue_Modern_Digital_Marketing_Logo-removebg-preview.png" alt="">
+                <img id="starter-img" src="images/taskflux logo.png" alt="">
              <h2 id="starter-text">Start Chat</h2>   
             </div>  
               <div id="chat-header" class="chat-header">
