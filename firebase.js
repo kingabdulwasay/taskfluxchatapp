@@ -18,7 +18,7 @@ let isGroupChat = false
 let enableCreateGroup = false
 let openSettingsToggle = false
 if (!userCredentials) {
-    window.location.replace('https://taskfluxchat.netlify.app/signup/signup.html')
+    window.location.replace('https://tfcai.netlify.app/signup/signup.html')
 }
 document.addEventListener('DOMContentLoaded',()=>{
     toggleStarter(false)
