@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 async function sendPrompt() {
      const prompt = document.getElementById('prompt-box')
       document.getElementById('loadingOverlay').classList.remove('hidden')
-    const res = await fetch('http://localhost:3000/send', {
+    const res = await fetch('https://taskfluxaiserver.vercel.app/send', {
         method:'POST',
         headers:{
             'content-type':'application/json'
