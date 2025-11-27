@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback & Ratings - TaskFlux</title>
+    <link rel="shortcut icon" href="../images/taskflux logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+
+        <!-- <div class="sidebar">
+            <div class="header">               
+                 <div class="user-profile">
+                <img src="../images/taskflux logo.png" alt="" class="profile-img">
+                </div>
+                <div class="actions">
+                    <button onclick="window.location.replace('../index.html')">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button onclick="window.location.replace('../ai/ai.html')"> 
+                        <i class="fas fa-robot"></i>
+                    </button>
+                    <button onclick="openSettings()" > 
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input id="global-search" type="text" placeholder="Search feedback...">
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="nav-btn active">
+                    <i class="fas fa-star"></i>
+                    <span>Feedback</span>
+                </button>
+                <button class="nav-btn">
+                    <i class="fas fa-tasks"></i>
+                    <span>Projects</span>
+                </button>
+            </div>
+
+            <div id="profile" class="profile-section">
+                <img id="user-photo" src="https://api.dicebear.com/6.x/adventurer/svg?seed=Jane" alt="Contact">
+                <div class="user-info">
+                    <h4 id="username">TaskFlux</h4>
+                </div>
+            </div>
+        </div> -->
+           <aside class="sidebar">
+      <h2 class="logo">TaskFlux AI</h2>
+       <ul class="menu">
+        <a href="http://tfcai.netlify.app/ai/ai.html">
+          <li><i class="fa-solid fa-robot"></i><span>AI Bot</span></li>
+        </a>
+        <a href="#">
+          <li><i class="fa-solid fa-folder"></i><span>Projects</span></li>
+        </a>
+        <a href="http://tfcai.netlify.app/index.html">
+          <li><i class="fa-solid fa-comments"></i><span>Messages</span></li>
+        </a>
+        <a href="http://tfcai.netlify.app/feedback/feedback.html">
+          <li><i class="fa-solid fa-star"></i><span>Feedback</span></li>
+        </a>
+         <a href="http://tfcai.netlify.app/auth/index.html">
+          <li><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Sign out</span></li>
+        </a>
+      </ul>
+      <div class="profile-btn">
+        <img
+  src="https://api.dicebear.com/9.x/avataaars/svg?seed=Vivian"
+  alt="avatar" />
+        <span>Abdul Wasay Rais</span>
+      </div>
+    </aside>
+        <main class="chat-main">
+            <div class="chat-header">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <h4>Feedback & Ratings</h4>
+                        <p id="subtitle">Client feedback across projects</p>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                             <button onclick="window.location.replace('http://tfcai.netlify.app/feedback_form/index.html')" class="btn add-btn">+ Add feedbacks</button>
+
+                </div>
+            </div>
+
+            <div class="conversation-container">
+                <div id="feedback-list" class="thread-list feedback-list">
+                    <!-- Feedback items rendered here -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="feedback.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/* Feedback page specific styles */
+.sidebar {
+  width: 220px;
+  background-color: #4b4efc;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 22px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.menu {
+  list-style: none;
+  width: 100%;
+}
+
+.menu li {
+  margin: 18px 0;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 10px;
+  gap: 15px;
+  opacity: 0.9;
+}
+
+
+.menu li:hover {
+ background-color: #ffffff67;
+  opacity: 1;
+}
+
+.profile-btn {
+  background-color: #8a8a8a44;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.profile-btn img{
+    width: 30px;
+}
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+}
+.feedback-item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.feedback-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+.feedback-client {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.feedback-client img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.feedback-comment {
+    color: #333;
+    font-size: 14px;
+}
+.rating-stars {
+    color: #ffb400;
+    font-size: 16px;
+}
+.menu a{
+  text-decoration: none;
+  color: white;
+}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:0;border-radius:8px;cursor:pointer;font-weight:600}
+
+.add-btn{background:linear-gradient(90deg,#6b46ff,#7c3aed);color:#fff}
+.project-badge {
+    background: #f0f4ff;
+    color: var(--bg-color);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 13px;
+}
+.no-feedback {
+    padding: 20px;
+    text-align: center;
+    color: #65676b;
+}
+
+@media (max-width:800px){
+    .sidebar{ display:none }
+    .chat-main{ width:100% }
+}

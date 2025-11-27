@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feedback Form - TaskFlux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-database-compat.js"></script>
+  </head>
+  <body>
+    <div class="app-root">
+       <aside class="sidebar">
+      <h2 class="logo">TaskFlux AI</h2>
+       <ul class="menu">
+        <a href="http://tfcai.netlify.app/ai/ai.html">
+          <li><i class="fa-solid fa-robot"></i><span>AI Bot</span></li>
+        </a>
+        <a href="#">
+          <li><i class="fa-solid fa-folder"></i><span>Projects</span></li>
+        </a>
+        <a href="http://tfcai.netlify.app/index.html">
+          <li><i class="fa-solid fa-comments"></i><span>Messages</span></li>
+        </a>
+        <a href="http://tfcai.netlify.app/feedback/feedback.html">
+          <li><i class="fa-solid fa-star"></i><span>Feedback</span></li>
+        </a>
+         <a href="http://tfcai.netlify.app/auth/index.html">
+          <li><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Sign out</span></li>
+        </a>
+      </ul>
+      <div class="profile-btn">
+        <img
+  src="https://api.dicebear.com/9.x/avataaars/svg?seed=Vivian"
+  alt="avatar" />
+        <span>Abdul Wasay Rais</span>
+      </div>
+    </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <h1 class="page-title">Feedback Form</h1>
+          <button onclick="window.location.replace('http://tfcai.netlify.app/feedback/feedback.html')" class="btn add-btn">View feedbacks</button>
+        </header>
+
+        <section class="center-area">
+          <div class="card feedback-card">
+            <label class="field-label">Description</label>
+            <textarea id="comment" class="input textarea" placeholder="Write your comments here"></textarea>
+
+            <label class="field-label">Reviews ( /5 )</label>
+            <input id="number" class="input small-input" type="number" min="0" max="5" placeholder="e.g. 5" />
+ 
+            <div class="actions-row">
+              <button id="submit-btn" class="btn submit-btn">Submit Feedback</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./feedback.js"></script>
+  </body>
+</html>

@@ -1,11 +1,11 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyAFsU9NPbup1CQjAF5p9OyyDaEh2enjgX4",
-    authDomain: "genniai.firebaseapp.com",
-    databaseURL: "https://genniai-default-rtdb.firebaseio.com",
-    projectId: "genniai",
-    storageBucket: "genniai.appspot.com",
-    messagingSenderId: "453741408957",
-    appId: "1:453741408957:web:dae8454811ac18c8fcbdd4"
+  apiKey: "AIzaSyCL9mi-BrrYIS2xw69iBRdpQSFLsMpRWC0",
+  authDomain: "taskfluxapm.firebaseapp.com",
+  databaseURL: "https://taskfluxapm-default-rtdb.firebaseio.com",
+  projectId: "taskfluxapm",
+  storageBucket: "taskfluxapm.firebasestorage.app",
+  messagingSenderId: "463607846926",
+  appId: "1:463607846926:web:9906b6e3fe4cab19ffc45f"
 };
 
 const app = firebase.initializeApp(firebaseConfig);
@@ -18,11 +18,11 @@ let isGroupChat = false
 let enableCreateGroup = false
 let openSettingsToggle = false
 if (!userCredentials) {
-    window.location.replace('https://tfcai.netlify.app/signup/signup.html')
+    window.location.replace('http://tfcai.netlify.app/auth/index.html')
 }
 document.addEventListener('DOMContentLoaded',()=>{
     toggleStarter(false)
-    document.getElementById('user-photo').src = `https://api.dicebear.com/6.x/adventurer/svg?seed=${userCredentials.img}`
+    document.getElementById('user-photo').src = `https://api.dicebear.com/6.x/adventurer/svg?seed=${userCredentials.username}`
        document.getElementById('username').innerText = userCredentials.username
 })
 
@@ -39,49 +39,7 @@ function toggleStarter(isChatStarted){
 
 }
 
-function authenticationWithGoogle() {
 
-    if (!userCredentials) {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth()
-            .signInWithPopup(provider)
-            .then((result) => {
-
-
-                var user = result.user;
-
-                console.log(user)
-                localStorage.setItem("user", JSON.stringify({
-                    uid: user.uid,
-                    username: user.displayName,
-                    email: user.email,
-                    img: user.photoURL
-                }))
-                firebase.database().ref('users/' + user.uid).set({
-                    uid: user.uid,
-                    username: user.displayName,
-                    email: user.email,
-                    img: user.photoURL
-                });
-
-            }).catch((error) => {
-
-                var errorMessage = error.message;
-                console.log(errorMessage)
-
-            });
-    } else {
-        var profileCard = document.getElementById('profile')
-        profileCard.innerHTML = `<img src="https://api.dicebear.com/6.x/adventurer/svg?seed=${userCredentials.username}" alt="Contact">
-                    <div class="profile-info">
-                        <span>${userCredentials.username}</span>
-                 
-                    </div>`
-    }
-
-
-
-}
 
 function readData(address, callback) {
     var starCountRef = firebase.database().ref(address);
@@ -106,7 +64,7 @@ function loadContacts() {
             contactDiv.innerHTML = `<img src="https://api.dicebear.com/6.x/adventurer/svg?seed=${contact.username?contact.username:'Unknown User'}" alt="Contact">
                     <div class="chat-info">
                         <h4>${contact.username?contact.username:'Unknown User'}</h4>
-                        <p>${contact.email}</p>
+                        <p>${contact.designation}</p>
                     </div>`
             contactDiv.addEventListener("click", () => {
                 isGroupChat = false
@@ -187,7 +145,8 @@ function sendMessage() {
             chat: chatID,
             text: message,
             senderName: userCredentials.username,
-            receiverMessage: receiverCredentials.username
+            receiverMessage: receiverCredentials.username,
+            project: localStorage.getItem("prjKey")
             }
         )
         loadChats('chats/'+ chatID)
@@ -200,6 +159,7 @@ function sendMessage() {
             chat: groupID,
             text: message,
             senderName: userCredentials.username,
+            project: localStorage.getItem("prjKey")
             }
         )
         loadChats('chats/' + groupID)
